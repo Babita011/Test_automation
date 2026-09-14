@@ -1,8 +1,31 @@
-{"DemoQa":
+
 {
-   "emailid": "//input[@id='userEmail']"
+  "DemoQa": {
+    "firstName": "//input[@placeholder='First Name']",
+    "lastName": "//input[@placeholder='Last Name']",
+    "email": "//input[@id='userEmail']",
+    "femaleGender": "//input[@id='gender-radio-2']",
+    "femaleGenderLabel": "//label[@for='gender-radio-2']",
 
-    
+    "mobileNumber": "//input[@placeholder='Mobile Number']",
 
-}
+    "dateOfBirth": "//input[@id='dateOfBirthInput']",
+    "yearSelect": "//select[contains(@class,'react-datepicker__year-select')]",
+    "monthSelect": "//select[contains(@class,'react-datepicker__month-select')]",
+    "day": "//div[contains(@class,'react-datepicker__day--010')]",
+
+    "subjects": "//div[@id='subjectsContainer']//input",
+    "subjectsContainer": "//div[@id='subjectsContainer']",
+
+    "sportsHobby": "//input[@id='hobbies-checkbox-2']",
+    "sportsHobbyLabel": "//label[@for='hobbies-checkbox-2']",
+
+    "currentAddress": "//textarea[@id='currentAddress']",
+
+    "state": "//div[@id='state']",
+    "stateInput": "//input[@id='react-select-3-input']",
+
+    "city": "//div[@id='city']",
+    "cityInput": "//input[@id='react-select-4-input']"
+  }
 }
