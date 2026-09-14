@@ -1,0 +1,12 @@
+{
+  "user1": {
+    "firstName": "MonaLisa",
+    "lastName": "Sharma",
+    "email": "monalisa@example.com",
+    "mobile": "9888810599",
+    "subject": "Science",
+    "address": "Bengaluru, Karnataka, India",
+    "state": "Uttar Pradesh",
+    "city": "Agra"
+  }
+}
