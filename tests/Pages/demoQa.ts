@@ -1,6 +1,17 @@
 import { Page, expect } from "@playwright/test";
 import QALocators from "../Locators/DemoQALocators.json";
 
+interface UserData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobile: string;
+  subject: string;
+  address: string;
+  state: string;
+  city: string;
+}
+
 export class DemoQA {
   private readonly locators = QALocators;
   private readonly page: Page;
@@ -9,27 +20,30 @@ export class DemoQA {
     this.page = page;
   }
 
-  async username(): Promise<void> {
+  async username(user: UserData): Promise<void> {
     // First Name
     const firstName = this.page.locator(
       this.locators.DemoQa.firstName
     );
-    await firstName.fill("MonaLisa");
-    await expect(firstName).toHaveValue("MonaLisa");
+
+    await firstName.fill(user.firstName);
+    await expect(firstName).toHaveValue(user.firstName);
 
     // Last Name
     const lastName = this.page.locator(
       this.locators.DemoQa.lastName
     );
-    await lastName.fill("sharma");
-    await expect(lastName).toHaveValue("sharma");
+
+    await lastName.fill(user.lastName);
+    await expect(lastName).toHaveValue(user.lastName);
 
     // Email
     const email = this.page.locator(
       this.locators.DemoQa.email
     );
-    await email.fill("MonaLisa@example.com");
-    await expect(email).toHaveValue("MonaLisa@example.com");
+
+    await email.fill(user.email);
+    await expect(email).toHaveValue(user.email);
 
     // Gender
     const femaleGender = this.page.locator(
@@ -43,74 +57,41 @@ export class DemoQA {
     await expect(femaleGender).toBeChecked();
   }
 
-  async mobileNumber(): Promise<void> {
+  async mobileNumber(mobile: string): Promise<void> {
     const mobileNumber = this.page.locator(
       this.locators.DemoQa.mobileNumber
     );
 
-    await mobileNumber.fill("9888810599");
+    await mobileNumber.fill(mobile);
 
-    await expect(mobileNumber).toHaveValue("9888810599");
+    await expect(mobileNumber).toHaveValue(mobile);
   }
 
-  async dateOfBirth(): Promise<void> {
-    await this.page
-      .locator(this.locators.DemoQa.dateOfBirth)
-      .click();
-
-    await this.page
-      .locator(this.locators.DemoQa.yearSelect)
-      .selectOption("2001");
-
-    await this.page
-      .locator(this.locators.DemoQa.monthSelect)
-      .selectOption("September");
-
-    await this.page
-      .locator(this.locators.DemoQa.day)
-      .first()
-      .click();
-  }
-
-  async subjects(): Promise<void> {
+  async subjects(subject: string): Promise<void> {
     const subjects = this.page.locator(
       this.locators.DemoQa.subjects
     );
 
-    await subjects.fill("Science");
+    await subjects.fill(subject);
 
     await expect(
       this.page.locator(this.locators.DemoQa.subjectsContainer)
-    ).toContainText("Science");
+    ).toContainText(subject);
 
     await this.page.keyboard.press("Enter");
   }
 
-  async hobbies(): Promise<void> {
-    const sportsHobby = this.page.locator(
-      this.locators.DemoQa.sportsHobby
-    );
-
-    await this.page
-      .locator(this.locators.DemoQa.sportsHobbyLabel)
-      .click();
-
-    await expect(sportsHobby).toBeChecked();
-  }
-
-  async currentAddress(): Promise<void> {
+  async currentAddress(addressValue: string): Promise<void> {
     const address = this.page.locator(
       this.locators.DemoQa.currentAddress
     );
 
-    await address.fill("Bengaluru, Karnataka, India");
+    await address.fill(addressValue);
 
-    await expect(address).toHaveValue(
-      "Bengaluru, Karnataka, India"
-    );
+    await expect(address).toHaveValue(addressValue);
   }
 
-  async state(): Promise<void> {
+  async state(stateValue: string): Promise<void> {
     const state = this.page.locator(
       this.locators.DemoQa.state
     );
@@ -122,11 +103,11 @@ export class DemoQA {
       this.locators.DemoQa.stateInput
     );
 
-    await stateInput.fill("Uttar Pradesh");
+    await stateInput.fill(stateValue);
     await this.page.keyboard.press("Enter");
   }
 
-  async city(): Promise<void> {
+  async city(cityValue: string): Promise<void> {
     const city = this.page.locator(
       this.locators.DemoQa.city
     );
@@ -139,7 +120,7 @@ export class DemoQA {
 
     await expect(cityInput).toBeEnabled();
 
-    await cityInput.fill("Agra");
+    await cityInput.fill(cityValue);
     await this.page.keyboard.press("Enter");
   }
 }
