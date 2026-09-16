@@ -1,0 +1,6 @@
+----- Before each test -----
+Setting up Author Fixture
+Author Name: Babita Thakur
+----- Test ID ----- 379c1901711223022d7c-8de5b1e17fbf3f5cc2d2
+Tearing down Author Fixture
+----- After all tests -----

@@ -1,4 +1,5 @@
-import { test, expect, Page } from "@playwright/test";
+import {test ,expect } from "./Fixture/author.fixture.spec"
+import { Page} from "@playwright/test";
 import { DemoQA } from "./Pages/demoQa";
 import testData from "./TestData/DemoQATestData.json";
 
@@ -16,9 +17,9 @@ test.beforeEach(async ({ page }) => {
 
 // Runs after every test
 test.afterEach(async ({}, testInfo) => {
-  console.log(`----- After each test ----- ${testInfo.title}`);
+ // console.log(`----- After each test ----- ${testInfo.title}`);
   console.log(`----- Test ID ----- ${testInfo.testId}`);
-  console.log(`----- Test Status ----- ${testInfo.status}`);
+  //console.log(`----- Test Status ----- ${testInfo.status}`);
 });
 
 // Runs once after all tests
@@ -27,17 +28,20 @@ test.afterAll(async () => {
 });
 
 // Test Case 1
-test("verify Practice Form - test case 1", async ({ page }) => {
+test("verify Practice Form - test case 1", async ({ page, author }) => {
+  console.log("Author Name:", author);
   await verifyPracticeForm(page);
 });
 
 // Test Case 2
-test("verify Practice Form - test case 2", async ({ page }) => {
+test("verify Practice Form - test case 2", async ({ page, author }) => {
+  console.log("Author Name:", author);
   await verifyPracticeForm(page);
 });
 
 // Test Case 3
-test("verify Practice Form - test case 3", async ({ page }) => {
+test("verify Practice Form - test case 3", async ({ page, author })=> {
+  console.log("Author Name:", author);
   await verifyPracticeForm(page);
 });
 
