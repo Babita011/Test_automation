@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx.cmd playwright test tests/demoqa.spec.ts",
+    "test": "npx playwright test tests/specs/demoqa.spec.ts && npx allure generate allure-results --clean && npx allure open allure-report",
     "testui": "npx.cmd playwright test --ui",
     "test:debug": "playwright test --debug",
     "test:headed": "playwright test --headed",
